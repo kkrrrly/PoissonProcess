@@ -33,12 +33,12 @@ while j < k
         tau(1,j) = round(r2);
     end
 end
-
+clear lambda
 %% Step 4: Rearrange (sort) the time instants #tau
 tau = sort(tau);
 
 %% Plot
-clear lambda
+
 y = zeros(1,T+1);
 for i = 1:k
     y(1,tau(i)+1:end) = i;

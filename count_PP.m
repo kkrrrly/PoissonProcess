@@ -1,7 +1,6 @@
 %% Constant Box
 %Time  same unit as lambda (i.e hour)
     T = 4.26e8;
-    t = 0:1:T;
     count_x = 1:1:300;
     count_y = zeros(1,300);
 
@@ -12,7 +11,7 @@ lambda(1,:) = 5e-7;
 
 %% Step 1: Estimate the mean arrival rate throughout the interval T
 lambda_mean = sum(lambda)/T;
-
+clear lambda;
 %% Step 2: Using a constant rate #lambda_mean with inversion method,generate a sample value of N(T), say k, the number of Pssion event in T
 
 
@@ -30,11 +29,11 @@ for i = 1:1000
     p = count_y(1,k);
     count_y(1,k) = p+1;
 end
+figure();
 bar(count_x,count_y);
-clear t lambda;
 xlim([150,300]);
 
-%%data analysis
+%% data analysis
 
 count_y1 = zeros(1,30);
 count_x1 = 10:10:300;
